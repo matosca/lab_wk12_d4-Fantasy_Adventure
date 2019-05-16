@@ -47,4 +47,10 @@ public class OrcTest {
         orc.defend(barbarian.getDamage());
         assertEquals(49, orc.getHealthPoints());
     }
+
+    @Test
+    public void canAttack(){
+        orc.attack(barbarian);
+        assertEquals(50, orc.getHealthPoints());
+    }
 }
