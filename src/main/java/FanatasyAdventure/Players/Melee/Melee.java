@@ -6,7 +6,7 @@ import FanatasyAdventure.Players.Player;
 import FanatasyAdventure.Players.Race;
 import FanatasyAdventure.Players.Weapons;
 
-public abstract class Melee extends Player implements IDamage {
+public abstract class Melee extends Player implements IDamage, IDefend {
 
     private Weapons weapon;
     private int damage;
@@ -21,11 +21,18 @@ public abstract class Melee extends Player implements IDamage {
         return weapon;
     }
 
+    public void setWeapon(Weapons weapon) {
+        this.weapon = weapon;
+    }
+
     public int getDamage() {
         return damage;
     }
 
     public void attack(IDefend enemy ){
         enemy.defend(damage);
+    }
+
+    public void defend(int damage){
     }
 }

@@ -1,6 +1,6 @@
 import FanatasyAdventure.Players.Melee.Barbarian;
 import FanatasyAdventure.Players.Race;
-import FanatasyAdventure.Players.Shields;
+import FanatasyAdventure.Players.Protection;
 import FanatasyAdventure.Players.Weapons;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,7 +14,7 @@ public class BarbarianTest {
 
     @Before
     public void before(){
-        barbarian = new Barbarian("Conan", Race.HUMAN, 100, Weapons.SWORD, Shields.SHIELD);
+        barbarian = new Barbarian("Conan", Race.HUMAN, 100, Weapons.SWORD, Protection.SHIELD);
     }
 
     @Test
@@ -44,13 +44,20 @@ public class BarbarianTest {
 
     @Test
     public void hasShield(){
-        assertEquals(Shields.SHIELD, barbarian.getShield());
+        assertEquals(Protection.SHIELD, barbarian.getShield());
     }
 
     @Test
     public void hasDamage(){
         assertEquals(15, barbarian.getDamage());
     }
+
+    @Test
+    public void canSwitchWeapons(){
+        barbarian.setWeapon(Weapons.AXE);
+        assertEquals(Weapons.AXE, barbarian.getWeapon());
+    }
+
 
 
 

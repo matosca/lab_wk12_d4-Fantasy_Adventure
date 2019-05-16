@@ -1,16 +1,16 @@
 package FanatasyAdventure.Players;
 
-public enum Shields {
+public enum Protection {
 
     SHIELD(10);
 
     private int armourRating;
 
-    Shields(int armourRating) {
+    Protection(int armourRating) {
         this.armourRating = armourRating;
     }
 
-    public int getShield() {
+    public int getArmourRating() {
         return armourRating;
     }
 }

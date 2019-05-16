@@ -1,0 +1,26 @@
+# Created by .ignore support plugin (hsz.mobi)
+### Java Template template
+# Created by .ignore support plugin (hsz.mobi)
+### Java template
+# Compiled class file
+*.class
+
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# IntelliJ
+.idea/
+out/
+target/
+.idea_modules/
+Sera borrado .gradle/4.10/vcsMetadata-1/
+Sera borrado src/main/java/FanatasyAdventure/Players/Magic/
+Sera borrado src/main/resources/
+Sera borrado src/test/resources/

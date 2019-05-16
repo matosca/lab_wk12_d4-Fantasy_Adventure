@@ -33,4 +33,7 @@ public abstract class Healer extends Player implements IHeal {
         player.setHealthPoints(newHealthPoints);
     }
 
+    public void switchItem(Items item) {
+        this.items = item;
+    }
 }

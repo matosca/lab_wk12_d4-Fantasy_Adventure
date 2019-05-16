@@ -1,8 +1,9 @@
 package FanatasyAdventure.Enemies;
 
+import FanatasyAdventure.Intefaces.IDamage;
 import FanatasyAdventure.Intefaces.IDefend;
 
-public abstract class Enemy implements IDefend {
+public abstract class Enemy implements IDefend, IDamage {
 
     private int healthPoints;
     private int armour;
@@ -27,7 +28,11 @@ public abstract class Enemy implements IDefend {
     }
 
     public void defend(int damage){
-        this.healthPoints -= (damage - armour);
+        this.healthPoints -= (armour - damage);
+    }
+
+    public void attack(IDefend player){
+        player.defend(damage);
     }
 
 }
