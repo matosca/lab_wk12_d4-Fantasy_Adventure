@@ -2,7 +2,7 @@ package FanatasyAdventure.Players;
 
 public enum Weapons {
 
-    SWORD(15),
+    SWORD(7),
     AXE(20),
     MACE(18),
     HAMMER(12);
