@@ -20,10 +20,6 @@ public abstract class Healer extends Player implements IHeal {
         return items;
     }
 
-    public void setItems(Items items) {
-        this.items = items;
-    }
-
     public int getHealingPoints() {
         return healingPoints;
     }
