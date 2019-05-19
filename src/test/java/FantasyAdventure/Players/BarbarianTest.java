@@ -1,6 +1,7 @@
 package FantasyAdventure.Players;
 
 import FantasyAdventure.Enemies.Orc;
+import FantasyAdventure.Enemies.Troll;
 import FantasyAdventure.Enums.PreciousObjects;
 import FantasyAdventure.Players.Melee.Barbarian;
 import FantasyAdventure.Enums.Race;
@@ -18,6 +19,7 @@ public class BarbarianTest {
 
     Barbarian barbarian;
     Orc orc;
+    Troll troll;
     TreasureRoom treasureRoom;
     EnemyRoom enemyRoom;
     UltimateRoom ultimateRoom;
@@ -26,7 +28,8 @@ public class BarbarianTest {
     @Before
     public void before(){
         barbarian = new Barbarian("Conan", Race.HUMAN, 100, Weapons.SWORD, Protection.SHIELD);
-        orc = new Orc(50, 10, 7);
+        orc = new Orc(40, 10, 13);
+        troll = new Troll(30, 10, 10);
         treasureRoom = new TreasureRoom(1000);
         enemyRoom = new EnemyRoom(140, orc);
         ultimateRoom = new UltimateRoom(2000, PreciousObjects.RUBY);
@@ -145,6 +148,15 @@ public class BarbarianTest {
         assertEquals(PreciousObjects.RUBY, barbarian.getObjectFromBag());
     }
 
-    
+    @Test
+    public void canFightAndDefeatMoreThanOneEnemyInRoom() {
+        barbarian.enterRoom(ultimateRoom);
+        ultimateRoom.addEnemiesToRoom(troll);
+        ultimateRoom.addEnemiesToRoom(orc);
+        barbarian.fightingMultipleEnemies();
+        assertEquals(0, troll.getHealthPoints());
+        assertEquals(0, orc.getHealthPoints());
+        assertEquals(76, barbarian.getHealthPoints());
+    }
 
 }

@@ -9,6 +9,8 @@ import FantasyAdventure.Enums.Race;
 import FantasyAdventure.Enums.Weapons;
 import FantasyAdventure.Rooms.Room;
 
+import java.util.ArrayList;
+
 public abstract class Melee extends Player implements IDamage, IDefend {
 
     private Weapons weapon;
@@ -62,6 +64,22 @@ public abstract class Melee extends Player implements IDamage, IDefend {
                 defend(enemy.getDamage());
                 if (enemy.getHealthPoints() < 0) {
                     enemy.setHealthPoints(0);
+                }
+            }
+        }
+    }
+
+    public void fightingMultipleEnemies() {
+        if (getCurrentRoom() != null) {
+            Room room = getCurrentRoom();
+            ArrayList<Enemy> enemies = room.getEnemies();
+            for (Enemy enemy : enemies) {
+                while(enemy.getHealthPoints() > 0) {
+                    attack(enemy);
+                    defend(enemy.getDamage());
+                    if(enemy.getHealthPoints() < 0) {
+                        enemy.setHealthPoints(0);
+                    }
                 }
             }
         }

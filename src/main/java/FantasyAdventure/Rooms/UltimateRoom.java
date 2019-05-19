@@ -16,12 +16,12 @@ public class UltimateRoom extends Room{
         this.enemies = new ArrayList<>();
     }
 
-    public ArrayList<Enemy> getEnemies() {
-        return enemies;
-    }
-
     public PreciousObjects getObject() {
         return object;
+    }
+
+    public ArrayList<Enemy> getEnemies() {
+        return enemies;
     }
 
     public int enemiesCount() {

@@ -4,18 +4,22 @@ import FantasyAdventure.Enemies.Enemy;
 import FantasyAdventure.Enums.PreciousObjects;
 import FantasyAdventure.Players.Player;
 
+import java.util.ArrayList;
+
 public abstract class Room {
 
     private int coins;
     private Enemy enemy;
     private Player player;
     private PreciousObjects object;
+    private ArrayList<Enemy> enemies;
 
     public Room(int coins) {
         this.coins = coins;
         this.enemy = null;
         this.player = null;
         this.object = null;
+        this.enemies = new ArrayList<>();
     }
 
     public int getCoins() {
@@ -24,6 +28,10 @@ public abstract class Room {
 
     public Enemy getEnemy() {
         return enemy;
+    }
+
+    public ArrayList<Enemy> getEnemies() {
+        return enemies;
     }
 
     public void setEnemy(Enemy enemy) {
