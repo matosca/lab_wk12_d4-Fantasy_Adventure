@@ -2,7 +2,7 @@ package FantasyAdventure.Players;
 
 
 import FantasyAdventure.Enums.Race;
-import FantasyAdventure.rooms.Room;
+import FantasyAdventure.Rooms.Room;
 
 public abstract class Player {
 

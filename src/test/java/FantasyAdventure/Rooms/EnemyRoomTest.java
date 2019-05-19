@@ -5,7 +5,6 @@ import FantasyAdventure.Enums.Protection;
 import FantasyAdventure.Enums.Race;
 import FantasyAdventure.Enums.Weapons;
 import FantasyAdventure.Players.Melee.Knight;
-import FantasyAdventure.rooms.EnemyRoom;
 import org.junit.Before;
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package FantasyAdventure.rooms;
+package FantasyAdventure.Rooms;
 
 public class TreasureRoom extends Room{
 

@@ -1,4 +1,4 @@
-package FantasyAdventure.rooms;
+package FantasyAdventure.Rooms;
 
 import FantasyAdventure.Enemies.Enemy;
 

@@ -7,7 +7,7 @@ import FantasyAdventure.Players.Player;
 import FantasyAdventure.Enums.Protection;
 import FantasyAdventure.Enums.Race;
 import FantasyAdventure.Enums.Weapons;
-import FantasyAdventure.rooms.Room;
+import FantasyAdventure.Rooms.Room;
 
 public abstract class Melee extends Player implements IDamage, IDefend {
 

@@ -5,7 +5,6 @@ import FantasyAdventure.Players.Melee.Barbarian;
 import FantasyAdventure.Enums.Protection;
 import FantasyAdventure.Enums.Race;
 import FantasyAdventure.Enums.Weapons;
-import FantasyAdventure.rooms.TreasureRoom;
 import org.junit.Before;
 import org.junit.Test;
 
