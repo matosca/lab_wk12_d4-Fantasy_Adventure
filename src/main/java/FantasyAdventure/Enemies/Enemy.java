@@ -45,6 +45,4 @@ public abstract class Enemy implements IDefend, IDamage {
         player.defend(damage);
     }
 
-
-
 }

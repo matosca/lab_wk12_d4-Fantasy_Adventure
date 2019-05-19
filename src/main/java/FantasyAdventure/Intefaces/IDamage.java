@@ -4,3 +4,7 @@ public interface IDamage {
 
     void attack(IDefend defend);
 }
+
+
+
+
