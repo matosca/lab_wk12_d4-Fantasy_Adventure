@@ -57,8 +57,13 @@ public abstract class Melee extends Player implements IDamage, IDefend {
         if (getCurrentRoom() != null) {
             Room room = getCurrentRoom();
             Enemy enemy = room.getEnemy();
-            attack(enemy);
-            defend(enemy.getDamage());
+            while (enemy.getHealthPoints() > 0) {
+                attack(enemy);
+                defend(enemy.getDamage());
+                if (enemy.getHealthPoints() < 0) {
+                    enemy.setHealthPoints(0);
+                }
+            }
         }
     }
 }

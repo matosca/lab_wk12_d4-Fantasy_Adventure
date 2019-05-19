@@ -19,6 +19,10 @@ public abstract class Enemy implements IDefend, IDamage {
         return healthPoints;
     }
 
+    public void setHealthPoints(int healthPoints) {
+        this.healthPoints = healthPoints;
+    }
+
     public int getArmour() {
         return armour;
     }
@@ -27,7 +31,7 @@ public abstract class Enemy implements IDefend, IDamage {
         return damage;
     }
 
-    public void defend(int damage){
+    public void defend(int damage) {
         int initialDamage = armour - damage;
 
         if (initialDamage > 0) {
@@ -40,5 +44,7 @@ public abstract class Enemy implements IDefend, IDamage {
     public void attack(IDefend player){
         player.defend(damage);
     }
+
+
 
 }
