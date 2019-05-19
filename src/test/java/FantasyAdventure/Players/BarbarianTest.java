@@ -1,12 +1,14 @@
 package FantasyAdventure.Players;
 
 import FantasyAdventure.Enemies.Orc;
+import FantasyAdventure.Enums.PreciousObjects;
 import FantasyAdventure.Players.Melee.Barbarian;
 import FantasyAdventure.Enums.Race;
 import FantasyAdventure.Enums.Protection;
 import FantasyAdventure.Enums.Weapons;
 import FantasyAdventure.Rooms.EnemyRoom;
 import FantasyAdventure.Rooms.TreasureRoom;
+import FantasyAdventure.Rooms.UltimateRoom;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -18,6 +20,7 @@ public class BarbarianTest {
     Orc orc;
     TreasureRoom treasureRoom;
     EnemyRoom enemyRoom;
+    UltimateRoom ultimateRoom;
 
 
     @Before
@@ -26,6 +29,7 @@ public class BarbarianTest {
         orc = new Orc(50, 10, 7);
         treasureRoom = new TreasureRoom(1000);
         enemyRoom = new EnemyRoom(140, orc);
+        ultimateRoom = new UltimateRoom(2000, PreciousObjects.RUBY);
     }
 
     @Test
@@ -116,5 +120,31 @@ public class BarbarianTest {
         assertEquals(70, barbarian.getHealthPoints());
         assertEquals(0, orc.getHealthPoints());
     }
+
+    @Test
+    public void hasABagOfObjectsEmpty(){
+        assertEquals(0, barbarian.preciousObjectsCount());
+    }
+
+    @Test
+    public void cannotCollectPreciousObjectUnlessInRoom(){
+        assertEquals(0, barbarian.preciousObjectsCount());
+    }
+
+    @Test
+    public void canCollectPreciousObjectFromRoom(){
+        barbarian.enterRoom(ultimateRoom);
+        barbarian.collectPreciousObject();
+        assertEquals(1, barbarian.preciousObjectsCount());
+    }
+
+    @Test
+    public void getObjectFromBagWhenCollectedObjectFromRoom(){
+        barbarian.enterRoom(ultimateRoom);
+        barbarian.collectPreciousObject();
+        assertEquals(PreciousObjects.RUBY, barbarian.getObjectFromBag());
+    }
+
+    
 
 }

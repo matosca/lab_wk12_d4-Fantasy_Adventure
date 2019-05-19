@@ -1,8 +1,11 @@
 package FantasyAdventure.Players;
 
 
+import FantasyAdventure.Enums.PreciousObjects;
 import FantasyAdventure.Enums.Race;
 import FantasyAdventure.Rooms.Room;
+
+import java.util.ArrayList;
 
 public abstract class Player {
 
@@ -11,6 +14,7 @@ public abstract class Player {
     private Race race;
     private int wallet;
     private Room currentRoom;
+    private ArrayList<PreciousObjects> bagOfObjects;
 
     public Player(String name, Race race, int wallet) {
         this.name = name;
@@ -18,6 +22,7 @@ public abstract class Player {
         this.wallet = wallet;
         this.healthPoints = race.getHealthPoints();
         this.currentRoom = null;
+        this.bagOfObjects = new ArrayList<>();
     }
 
     public int getHealthPoints() {
@@ -56,5 +61,19 @@ public abstract class Player {
         return this.wallet;
     }
 
+    public PreciousObjects getObjectFromBag() {
+        return this.bagOfObjects.get(0);
+    }
+
+    public int preciousObjectsCount(){
+        return this.bagOfObjects.size();
+    }
+
+    public void collectPreciousObject(){
+        if (this.currentRoom != null) {
+            Room room = this.getCurrentRoom();
+            this.bagOfObjects.add(room.getObject());
+        }
+    }
 
 }

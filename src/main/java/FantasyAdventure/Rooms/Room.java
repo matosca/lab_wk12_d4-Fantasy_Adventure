@@ -1,6 +1,7 @@
 package FantasyAdventure.Rooms;
 
 import FantasyAdventure.Enemies.Enemy;
+import FantasyAdventure.Enums.PreciousObjects;
 import FantasyAdventure.Players.Player;
 
 public abstract class Room {
@@ -8,11 +9,13 @@ public abstract class Room {
     private int coins;
     private Enemy enemy;
     private Player player;
+    private PreciousObjects object;
 
     public Room(int coins) {
         this.coins = coins;
         this.enemy = null;
         this.player = null;
+        this.object = null;
     }
 
     public int getCoins() {
@@ -33,5 +36,9 @@ public abstract class Room {
 
     public void setPlayer(Player player) {
         this.player = player;
+    }
+
+    public PreciousObjects getObject() {
+        return object;
     }
 }
