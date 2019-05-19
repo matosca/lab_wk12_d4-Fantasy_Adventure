@@ -120,7 +120,7 @@ public class BarbarianTest {
     public void canFightEnemyInRoom(){
         barbarian.enterRoom(enemyRoom);
         barbarian.fight();
-        assertEquals(70, barbarian.getHealthPoints());
+        assertEquals(76, barbarian.getHealthPoints());
         assertEquals(0, orc.getHealthPoints());
     }
 
