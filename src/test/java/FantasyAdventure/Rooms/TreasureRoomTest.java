@@ -19,7 +19,7 @@ public class TreasureRoomTest {
 
     @Before
     public void before(){
-        treasureRoom = new TreasureRoom(1000);
+        treasureRoom = new TreasureRoom(100);
         orc = new Orc(50, 8, 10);
         barbarian = new Barbarian("Conan", Race.HUMAN, 100, Weapons.SWORD, Protection.SHIELD);
 
@@ -27,7 +27,7 @@ public class TreasureRoomTest {
 
     @Test
     public void hasCoins(){
-        assertEquals(1000, treasureRoom.getCoins());
+        assertEquals(100, treasureRoom.getCoins());
     }
 
     @Test
@@ -51,4 +51,5 @@ public class TreasureRoomTest {
         treasureRoom.setPlayer(barbarian);
         assertEquals(barbarian, treasureRoom.getPlayer());
     }
+
 }

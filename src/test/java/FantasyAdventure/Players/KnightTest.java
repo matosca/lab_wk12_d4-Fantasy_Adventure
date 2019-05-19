@@ -5,7 +5,7 @@ import FantasyAdventure.Enums.Protection;
 import FantasyAdventure.Enums.Race;
 import FantasyAdventure.Enums.Weapons;
 import FantasyAdventure.Players.Melee.Knight;
-import FantasyAdventure.rooms.TreasureRoom;
+import FantasyAdventure.rooms.EnemyRoom;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -15,13 +15,13 @@ public class KnightTest {
 
     Knight knight;
     Troll troll;
-    TreasureRoom treasureRoom;
+    EnemyRoom enemyRoom;
 
     @Before
     public void before(){
         knight = new Knight("Sir Lancelot", Race.HUMAN, 50, Weapons.SWORD, Protection.ARMOUR);
         troll = new Troll(40, 8, 20);
-        treasureRoom = new TreasureRoom(200);
+        enemyRoom = new EnemyRoom(140, troll);
     }
 
 
@@ -85,7 +85,31 @@ public class KnightTest {
 
     @Test
     public void canEnterRoom(){
-        knight.enterRoom(treasureRoom);
-        assertEquals(treasureRoom, knight.getCurrentRoom());
+        knight.enterRoom(enemyRoom);
+        assertEquals(enemyRoom, knight.getCurrentRoom());
+    }
+
+    @Test
+    public void cannotGetCoinsUnlessInRoom(){
+        assertEquals(50, knight.getCoins());
+    }
+
+    @Test
+    public void canGetCoinsFromRoom(){
+        knight.enterRoom(enemyRoom);
+        knight.getCoins();
+        assertEquals(190, knight.getWallet());
+    }
+
+    @Test
+    public void cannotFightEnemyUnlessInRoom(){
+        assertEquals(100, knight.getHealthPoints());
+    }
+
+    @Test
+    public void canFightEnemyInRoom(){
+        knight.enterRoom(enemyRoom);
+        knight.fight();
+        assertEquals(92, knight.getHealthPoints());
     }
 }

@@ -5,6 +5,7 @@ import FantasyAdventure.Players.Melee.Barbarian;
 import FantasyAdventure.Enums.Race;
 import FantasyAdventure.Enums.Protection;
 import FantasyAdventure.Enums.Weapons;
+import FantasyAdventure.rooms.EnemyRoom;
 import FantasyAdventure.rooms.TreasureRoom;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,6 +17,7 @@ public class BarbarianTest {
     Barbarian barbarian;
     Orc orc;
     TreasureRoom treasureRoom;
+    EnemyRoom enemyRoom;
 
 
     @Before
@@ -23,6 +25,7 @@ public class BarbarianTest {
         barbarian = new Barbarian("Conan", Race.HUMAN, 100, Weapons.SWORD, Protection.SHIELD);
         orc = new Orc(50, 10, 7);
         treasureRoom = new TreasureRoom(1000);
+        enemyRoom = new EnemyRoom(140, orc);
     }
 
     @Test
@@ -75,7 +78,7 @@ public class BarbarianTest {
     @Test
     public void canDefend(){
         barbarian.defend(orc.getDamage());
-        assertEquals(93, barbarian.getHealthPoints());
+        assertEquals(97, barbarian.getHealthPoints());
     }
 
     @Test
@@ -90,6 +93,11 @@ public class BarbarianTest {
     }
 
     @Test
+    public void cannotGetCoinsUnlessInRoom(){
+        assertEquals(100, barbarian.getCoins());
+    }
+
+    @Test
     public void canGetCoinsFromRoom(){
         barbarian.enterRoom(treasureRoom);
         barbarian.getCoins();
@@ -97,8 +105,15 @@ public class BarbarianTest {
     }
 
     @Test
-    public void cannotGetCoinsUnlessInRoom(){
-        assertEquals(100, barbarian.getCoins());
+    public void cannotFightEnemyUnlessInRoom(){
+        assertEquals(100, barbarian.getHealthPoints());
+    }
+
+    @Test
+    public void canFightEnemyInRoom(){
+        barbarian.enterRoom(enemyRoom);
+        barbarian.fight();
+        assertEquals(97, barbarian.getHealthPoints());
     }
 
 }

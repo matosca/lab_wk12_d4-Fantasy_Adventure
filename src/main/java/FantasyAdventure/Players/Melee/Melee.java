@@ -1,11 +1,13 @@
 package FantasyAdventure.Players.Melee;
 
+import FantasyAdventure.Enemies.Enemy;
 import FantasyAdventure.Intefaces.IDamage;
 import FantasyAdventure.Intefaces.IDefend;
 import FantasyAdventure.Players.Player;
 import FantasyAdventure.Enums.Protection;
 import FantasyAdventure.Enums.Race;
 import FantasyAdventure.Enums.Weapons;
+import FantasyAdventure.rooms.Room;
 
 public abstract class Melee extends Player implements IDamage, IDefend {
 
@@ -48,6 +50,15 @@ public abstract class Melee extends Player implements IDamage, IDefend {
             setHealthPoints(getHealthPoints() - initialDamage);
         } else {
             setHealthPoints(getHealthPoints() + initialDamage);
+        }
+    }
+
+    public void fight(){
+        if (getCurrentRoom() != null) {
+            Room room = getCurrentRoom();
+            Enemy enemy = room.getEnemy();
+            attack(enemy);
+            defend(enemy.getDamage());
         }
     }
 }
